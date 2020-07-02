@@ -94,8 +94,10 @@ var PlaceEntry = GObject.registerClass({
         this._mapView = props.mapView;
         delete props.mapView;
 
-        if (!props.loupe)
-            props.primary_icon_name = null;
+        // TODO: GtkSearchEntry always shows icon in GTK4, should we use a normal entry
+        // for the route case to not have search icons?
+        //if (!props.loupe)
+        //    props.primary_icon_name = null;
         delete props.loupe;
 
         let maxChars = props.maxChars;

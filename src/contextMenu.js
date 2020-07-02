@@ -44,7 +44,8 @@ var ContextMenu = GObject.registerClass({
                         'routeFromHereItem',
                         'addIntermediateDestinationItem',
                         'routeToHereItem' ],
-}, class ContextMenu extends Gtk.Menu {
+}, class ContextMenu extends Gtk.PopoverMenu {
+    // TODO: should create from a menu model…
     _init(params) {
         this._mapView = params.mapView;
         delete params.mapView;
@@ -54,8 +55,9 @@ var ContextMenu = GObject.registerClass({
 
         super._init(params);
 
-        this._mapView.connect('button-release-event',
-                              this._onButtonReleaseEvent.bind(this));
+        // TODO: use GtkGesture (and also for long-press, see https://gitlab.gnome.org/GNOME/gnome-maps/-/issues/2)
+        //this._mapView.connect('button-release-event',
+        //                      this._onButtonReleaseEvent.bind(this));
 
         this._whatsHereItem.connect('activate',
                                     this._onWhatsHereActivated.bind(this));

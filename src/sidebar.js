@@ -441,7 +441,8 @@ var Sidebar = GObject.registerClass({
 
     _clearInstructions() {
         let listBox = this._instructionList;
-        listBox.forall(listBox.remove.bind(listBox));
+        // TODO: GtkContainer is not available in GTK4, use get_first(), get_next(), or something like that
+        //listBox.foreach(listBox.remove.bind(listBox));
 
         this._instructionStack.visible_child = this._instructionWindow;
         this._timeInfo.label = '';

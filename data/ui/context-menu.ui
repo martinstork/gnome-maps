@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <interface>
   <!-- interface-requires gtk+ 3.0 -->
-  <template class="Gjs_ContextMenu" parent="GtkMenu">
+  <template class="Gjs_ContextMenu" parent="GtkPopoverMenu">
     <property name="visible">False</property>
     <child>
       <object class="GtkMenuItem" id="routeFromHereItem">
